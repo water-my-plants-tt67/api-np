@@ -9,8 +9,8 @@ module.exports = {
 };
 
 async function create(data) {
-  const id = await db("users").insert(data);
-  return db("users").where("id", id).first();
+  await db("users").insert(data);
+  return { Message: `User ${data.username} created!` };
 }
 
 async function update(id, data) {

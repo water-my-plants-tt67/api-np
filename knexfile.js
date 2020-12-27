@@ -9,8 +9,12 @@ const sharedConfig = {
 
 module.exports = {
   development: {
-    ...sharedConfig,
-    connection: { filename: "./data/auth.db3" },
+    client: "pg",
+    connection:
+      "postgres://hykcccgn:zkUqTNzcnQld5S1IucgYOdhGWWGNVzRe@suleiman.db.elephantsql.com:5432/hykcccgn",
+    migrations: {
+      directory: "./data/migrations",
+    },
     seeds: { directory: "./data/seeds" },
   },
   testing: {
@@ -18,7 +22,12 @@ module.exports = {
     connection: { filename: "./data/test.db3" },
   },
   production: {
-    ...sharedConfig,
-    connection: { filename: "./data/auth.db3" },
+    client: "pg",
+    connection:
+      "postgres://hykcccgn:zkUqTNzcnQld5S1IucgYOdhGWWGNVzRe@suleiman.db.elephantsql.com:5432/hykcccgn",
+    migrations: {
+      directory: "./data/migrations",
+    },
+    seeds: { directory: "./data/seeds" },
   },
 };
