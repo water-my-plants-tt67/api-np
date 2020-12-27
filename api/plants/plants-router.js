@@ -1,12 +1,10 @@
 const router = require("express").Router();
 const restricted = require("../middleware/restricted");
 const PlantsModel = require("./plants-model");
+const plantUpdate = require("../middleware/plantUpdate");
+const plantCreation = require("../middleware/plantCreate");
 
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "Plants up" });
-});
-
-router.post("/", restricted, (req, res) => {
+router.post("/", restricted, plantCreation, (req, res) => {
   const data = {
     "user-id": req.decodedToken.id,
     nickname: req.body.nickname,
@@ -20,6 +18,22 @@ router.post("/", restricted, (req, res) => {
     .catch((err) => {
       res.status(400).json(err.message);
     });
+});
+
+router.put("/:id", restricted, plantUpdate, (req, res) => {
+  PlantsModel.updatePlant(req.params.id, req.body)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err.message);
+    });
+});
+
+router.delete("/:id", restricted, plantUpdate, (req, res) => {
+  PlantsModel.deletePlant(req.params.id).then((data) => {
+    res.status(200).json("deleted");
+  });
 });
 
 module.exports = router;

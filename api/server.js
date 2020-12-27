@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const usersRouter = require("./users/users-router");
 const plantsRouter = require("./plants/plants-router");
+const path = require("path");
 
 const server = express();
 
@@ -14,7 +15,7 @@ server.use("/users/", usersRouter);
 server.use("/plants/", plantsRouter);
 
 server.get("/", (req, res) => {
-  res.status(200).json({ message: "API UP" });
+  res.sendFile(path.join(__dirname + "/documentation.html"));
 });
 
 module.exports = server;

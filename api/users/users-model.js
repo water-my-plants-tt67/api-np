@@ -3,8 +3,6 @@ const db = require("../../data/dbConfig");
 module.exports = {
   create,
   update,
-  getAll,
-  getById,
   remove,
   getPlants,
   getByUsername,
@@ -17,13 +15,6 @@ async function create(data) {
 
 async function update(id, data) {
   await db("users").where("id", id).update(data);
-  return db("users").where("id", id).first();
-}
-
-function getAll() {
-  return db("users");
-}
-function getById(id) {
   return db("users").where("id", id).first();
 }
 
