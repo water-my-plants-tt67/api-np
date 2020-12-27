@@ -8,8 +8,9 @@ exports.seed = function (knex) {
         {
           id: 1,
           username: "testUser",
-          password: "abcdefgh",
-          telephone: "1234561232",
+          password:
+            "$2a$10$SKVbkDjxoZhvj2giBKzVAOHLv8UEtOuUTuSEnEkrIq7V4d0WkEhtu",
+          telephone: "5555555555",
         },
       ]);
     });
