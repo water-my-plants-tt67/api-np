@@ -15,7 +15,7 @@ async function create(data) {
 
 async function update(id, data) {
   await db("users").where("id", id).update(data);
-  return db("users").where("id", id).first();
+  return { Message: `User ${data.username} updated!` };
 }
 
 function remove(id) {

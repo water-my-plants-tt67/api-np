@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = process.env.JWT;
+const jwtSecret = process.env.JWT || "OOGGGGIIIEEEE";
 
 module.exports = function makeToken(user) {
   const payload = {

@@ -33,8 +33,7 @@ router.post("/register", userValidation, (req, res) => {
 
   const hash = bcryptjs.hashSync(credentials.password, 10);
   credentials.password = hash;
-
-  UserModel.create(credentials)
+  credentials.id = UserModel.create(credentials)
     .then((data) => {
       res.status(200).json(data);
     })

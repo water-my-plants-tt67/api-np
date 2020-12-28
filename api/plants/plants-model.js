@@ -8,8 +8,8 @@ module.exports = {
 };
 
 async function createPlant(data) {
-  const id = await db("plants").insert(data);
-  return db("plants").where("id", id).first();
+  await db("plants").insert(data);
+  return `Plant created`;
 }
 
 async function updatePlant(id, data) {
