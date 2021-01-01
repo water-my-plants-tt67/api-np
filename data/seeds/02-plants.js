@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           nickname: "bill",
           species: "fern",
           h2oFrequency: "daily",
-          "user-id": 1,
+          userID: 1,
         },
       ]);
     });

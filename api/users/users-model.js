@@ -23,7 +23,7 @@ function remove(id) {
 }
 
 function getPlants(id) {
-  return db("plants").where("user-id", id);
+  return db("plants").where("userID", id);
 }
 
 function getByUsername(name) {

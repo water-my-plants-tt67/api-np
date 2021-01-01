@@ -6,7 +6,7 @@ const plantCreation = require("../middleware/plantCreate");
 
 router.post("/", restricted, plantCreation, (req, res) => {
   const data = {
-    "user-id": req.decodedToken.id,
+    userID: req.decodedToken.id,
     nickname: req.body.nickname,
     species: req.body.species,
     h2oFrequency: req.body.h2oFrequency,
