@@ -1,3 +1,4 @@
+//checking
 const dotenv = require("dotenv");
 dotenv.config();
 const sharedConfig = {
