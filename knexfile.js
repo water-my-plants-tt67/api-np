@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const sharedConfig = {
   client: "sqlite3",
   useNullAsDefault: true,
@@ -6,12 +8,12 @@ const sharedConfig = {
     afterCreate: (conn, done) => conn.run("PRAGMA foreign_keys = ON", done),
   },
 };
+const DB = process.env.DB;
 
 module.exports = {
   development: {
     client: "pg",
-    connection:
-      "postgres://hykcccgn:zkUqTNzcnQld5S1IucgYOdhGWWGNVzRe@suleiman.db.elephantsql.com:5432/hykcccgn",
+    connection: DB,
     migrations: {
       directory: "./data/migrations",
     },
@@ -23,8 +25,7 @@ module.exports = {
   },
   production: {
     client: "pg",
-    connection:
-      "postgres://hykcccgn:zkUqTNzcnQld5S1IucgYOdhGWWGNVzRe@suleiman.db.elephantsql.com:5432/hykcccgn",
+    connection: DB,
     migrations: {
       directory: "./data/migrations",
     },
