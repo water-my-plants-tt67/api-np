@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function create(data) {
-  await db("users").insert(data);
+  const a = await db("users").insert(data);
   return { Message: `User ${data.username} created!` };
 }
 

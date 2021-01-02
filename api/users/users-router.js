@@ -8,7 +8,6 @@ const loginValidation = require("../middleware/loginValidation");
 const passwordUpdateValidation = require("../middleware/passwordUpdateValidation");
 
 router.get("/plants", restricted, (req, res) => {
-  console.log(req.decodedToken);
   UserModel.getPlants(req.decodedToken.id)
     .then((data) => {
       res.status(200).json(data);
@@ -28,12 +27,13 @@ router.delete("/", restricted, (req, res) => {
     });
 });
 
-router.post("/register", userValidation, (req, res) => {
+router.post("/register", (req, res) => {
   const credentials = req.body;
 
   const hash = bcryptjs.hashSync(credentials.password, 10);
   credentials.password = hash;
-  credentials.id = UserModel.create(credentials)
+
+  UserModel.create(credentials)
     .then((data) => {
       res.status(200).json(data);
     })
