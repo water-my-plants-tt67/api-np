@@ -1,7 +1,6 @@
 const db = require("../plants/plants-model");
 const plantUpdate = (req, res, next) => {
   db.getById(req.params.id).then((data) => {
-    console.log(data["userID"]);
     if (data["userID"] === req.decodedToken.id) {
       next();
     } else {
