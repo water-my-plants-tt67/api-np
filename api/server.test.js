@@ -54,3 +54,10 @@ describe("[POST] /users/login", () => {
     );
   });
 });
+
+describe("[GET] /dummydata", () => {
+  it("Retrieves dummy data", async () => {
+    const response = await request(server).get("/dummydata");
+    expect(response.body.length).toBe(6);
+  });
+});
