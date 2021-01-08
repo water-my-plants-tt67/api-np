@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation</title>
+    <style>
+      body {
+        background-color: rgb(128, 128, 211);
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        text-align: center;
+        margin: 0 auto;
+      }
+      th {
+        border: 1px solid black;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Track Team 67 Plants API</h1>
+    <table>
+      <tr>
+        <th>Endpoint type</th>
+        <th>Protected</th>
+        <th>Endpoint Url</th>
+        <th>What Endpoing does</th>
+      </tr>
+      <tr>
+        <th>GET</th>
+        <th>NO</th>
+        <th>https://tt67-bw.herokuapp.com/</th>
+        <th>Gets the API Documentation</th>
+      </tr>
+      <tr>
+        <th>POST</th>
+        <th>NO</th>
+        <th>https://tt67-bw.herokuapp.com/users/register</th>
+        <th>
+          Registers a new user. Requires an object with a username, password,
+          and telephone all of type string.
+        </th>
+      </tr>
+      <tr>
+        <th>POST</th>
+        <th>NO</th>
+        <th>https://tt67-bw.herokuapp.com/users/login</th>
+        <th>
+          Logs in a user. Requires an object with a username and password all of
+          type string. Returns JSON Web Token.
+        </th>
+      </tr>
+      <tr>
+        <th>POST</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/users/plants</th>
+        <th>Returns all plants associated with the logged in user.</th>
+      </tr>
+      <tr>
+        <th>DELETE</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/users/</th>
+        <th>Deletes currently logged in user.</th>
+      </tr>
+      <tr>
+        <th>POST</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/plants/</th>
+        <th>
+          Creates a plant for logged in user. Requires a nickname, species, and
+          h2oFrequency all of type string.
+        </th>
+      </tr>
+      <tr>
+        <th>PUT</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/plants/:id</th>
+        <th>
+          Updates a plant with specified id if it belongs to logged in user.
+          Requires what is to be updated.
+        </th>
+      </tr>
+      <tr>
+        <th>DELETE</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/plants/:id</th>
+        <th>
+          Deletes the plant with specified id if it belongs to logged in user.
+        </th>
+      </tr>
+      <tr>
+        <th>GET</th>
+        <th>YES</th>
+        <th>https://tt67-bw.herokuapp.com/plants/:id</th>
+        <th>
+          Gets plant data based of id requries logged in user to own the data.
+        </th>
+      </tr>
+      <tr>
+        <th>GET</th>
+        <th>NO</th>
+        <th>https://tt67-bw.herokuapp.com/dummydata</th>
+        <th>Dummy data for marketing page</th>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>
+          ALL PROTECTED ROUTES REQUIRE JSON WEB TOKEN IN AUTH HEADER! YOU GET
+          THE TOKEN IN THE RESPONSE OF THE LOGIN ENDPOINT.
+        </th>
+      </tr>
+    </table>
+  </body>
+</html>
